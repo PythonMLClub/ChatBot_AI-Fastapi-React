@@ -1,0 +1,257 @@
+name: cortex_agent
+description: 'Semantic model for farm'
+tables:
+  - name: vw_farm_details
+    base_table:
+      database: TDevDB
+      schema: dbo
+      table: vw_farm_details
+    dimensions:
+      - name: UNIQUEID
+        expr: UNIQUEID
+        data_type: VARCHAR(16777216)
+        description: A unique identifier for each farm or agricultural operation, used to distinguish one farm from another in the dataset.
+        sample_values:
+          - '229'
+          - '550'
+          - '571'
+        synonyms:
+          - id
+          - identifier
+          - unique_identifier
+          - farm_id_number
+          - farm_identifier_code
+      - name: FARMID
+        expr: FARMID
+        data_type: VARCHAR(16777216)
+        description: Unique identifier for a farm, used to distinguish one farm from another in the system.
+        sample_values:
+          - F00000886721
+          - F00000778721
+          - F11000538454
+        synonyms:
+          - farm_identifier
+          - farm_code
+          - farm_key
+          - farm_unique_id
+          - farm_number
+      - name: NAME_AVAILABLITY_CODE
+        expr: NAME_AVAILABLITY_CODE
+        data_type: VARCHAR(16777216)
+        description: Indicates whether the farm is available or not, with 1 representing available and NULL representing unknown or unavailable.
+        sample_values:
+          - 'NULL'
+          - '1'
+        synonyms:
+          - name_availability_status
+          - name_accessibility_code
+          - name_usability_indicator
+          - name_readiness_code
+          - name_status_code
+      - name: TELEPHONE_AVAILABLITY_CODE
+        expr: TELEPHONE_AVAILABLITY_CODE
+        data_type: VARCHAR(16777216)
+        description: Indicates whether a telephone is available at the farm, with 1 representing "yes" and NULL representing "unknown" or "not applicable".
+        sample_values:
+          - 'NULL'
+          - '1'
+        synonyms:
+          - phone_availability_status
+          - telephone_access_code
+          - phone_status_code
+          - availability_phone_code
+          - phone_code_status
+      - name: ADDRESS_AVAILABLITY_CODE
+        expr: ADDRESS_AVAILABLITY_CODE
+        data_type: VARCHAR(16777216)
+        description: Indicates whether the farm's address is available or not, with 1 representing that the address is available.
+        sample_values:
+          - '1'
+        synonyms:
+          - location_availability_status
+          - address_status_code
+          - availability_address_code
+          - address_code_availability
+          - location_code_availability
+      - name: CROP_AVAILABLITY_CODE
+        expr: CROP_AVAILABLITY_CODE
+        data_type: VARCHAR(16777216)
+        description: Indicates whether a crop is available for planting or harvesting, with 1 representing available and NULL representing not available or unknown.
+        sample_values:
+          - '1'
+          - 'NULL'
+        synonyms:
+          - crop_availability_status
+          - crop_accessibility_code
+          - farm_product_availability
+          - crop_readiness_indicator
+          - harvest_availability_code
+      - name: EMAIL_AVAILABLITY_CODE
+        expr: EMAIL_AVAILABLITY_CODE
+        data_type: VARCHAR(16777216)
+        description: Indicates whether an email address is available for a farm, with 1 representing an available email address and NULL representing an unavailable or missing email address.
+        sample_values:
+          - 'NULL'
+          - '1'
+        synonyms:
+          - email_status_code
+          - email_access_code
+          - email_availability_status
+          - email_code
+          - email_validity_code
+      - name: LIVESTOCK_AVAILABLITY_CODE
+        expr: LIVESTOCK_AVAILABLITY_CODE
+        data_type: VARCHAR(16777216)
+        description: Indicates the availability status of livestock on the farm, where 1 represents available and NULL represents unknown or not applicable.
+        sample_values:
+          - '1'
+          - 'NULL'
+        synonyms:
+          - livestock_status_code
+          - animal_availability_indicator
+          - farm_animal_code
+          - livestock_accessibility_code
+          - availability_code_livestock
+      - name: CROPS_NAME
+        expr: CROPS_NAME
+        data_type: VARCHAR(16777216)
+        description: The type of crop being grown or harvested on the farm.
+        sample_values:
+          - '"CORN'
+          - FORAGE
+        synonyms:
+          - crop_name
+          - crop_type
+          - farm_produce
+          - harvested_product
+          - agricultural_output
+      - name: LIVESTOCK_NAME
+        expr: LIVESTOCK_NAME
+        data_type: VARCHAR(16777216)
+        description: Type of livestock raised on the farm, such as alfalfa, sheep, or cattle.
+        sample_values:
+          - ALFALFA
+          - SHEEP
+          - CATTLE
+        synonyms:
+          - animal_name
+          - livestock_type
+          - farm_animal
+          - animal_description
+          - livestock_description
+      - name: STATE
+        expr: STATE
+        data_type: VARCHAR(16777216)
+        description: Two-character code representing the state in the United States where the business is located.
+        sample_values:
+          - MA
+          - TX
+        synonyms:
+          - region_code
+          - state_id
+          - province_code
+          - geographic_code
+          - area_code
+          - location_code
+      - name: CITY
+        expr: CITY
+        data_type: VARCHAR(16777216)
+        description: This column represents the city or location where the farm is based, which can be categorized into different types such as fruiting and flowering vegetable farms, dairy farms, or farms in Becket.
+        sample_values:
+          - FRUITING AND FLOWERING VEGETABLE
+          - DAIRY
+          - BECKET
+        synonyms:
+          - town
+          - municipality
+          - urban_area
+          - metropolis
+          - urban_center
+          - locale
+          - settlement
+      - name: ZIPCODE
+        expr: ZIPCODE
+        data_type: VARCHAR(16777216)
+        description: Postal code or geographic region where the farm is located, which can be used to analyze farm data by geographic area, with possible values including "TOBACCO" (likely a region or area name) and "MA" (Massachusetts), as well as specific zip codes like "1223".
+        sample_values:
+          - TOBACCO
+          - MA
+          - '1223'
+        synonyms:
+          - postal_code
+          - zip
+          - postcode
+          - zip_code
+          - postal
+      - name: LATITUDE
+        expr: LATITUDE
+        data_type: VARCHAR(16777216)
+        description: Location or geographic identifier for the farm, including city or town names and precise GPS coordinates.
+        sample_values:
+          - MELONS
+          - LANESBOROUGH
+          - '42.3623'
+        synonyms:
+          - lat
+          - latitude_coordinate
+          - lat_value
+          - geographic_latitude
+          - y_coordinate
+      - name: LONGITUDE
+        expr: LONGITUDE
+        data_type: VARCHAR(16777216)
+        description: Longitude of the farm location in decimal degrees.
+        sample_values:
+          - BARLEY"
+          - '1237'
+          - '73.1505'
+        synonyms:
+          - east_west_coordinate
+          - easting
+          - geographic_longitude
+          - longitudinal_coordinate
+          - x_coordinate
+      - name: OWNER_OPERATOR_TYPE
+        expr: OWNER_OPERATOR_TYPE
+        data_type: VARCHAR(16777216)
+        description: Type of farm operation, indicating whether the farm is operated by the owner or someone else, with "DAIRY" specifically denoting dairy farms.
+        sample_values:
+          - DAIRY
+          - '42.5714'
+        synonyms:
+          - farm_operator_type
+          - owner_type
+          - operator_category
+          - farm_owner_status
+          - ownership_type
+          - farm_classification
+      - name: RURAL_FLAG
+        expr: RURAL_FLAG
+        data_type: VARCHAR(16777216)
+        description: Indicator of whether a farm is located in a rural area, with MA representing missing or unknown values, and 1 indicating rural and 0 indicating non-rural.
+        sample_values:
+          - MA
+          - '73.2564'
+          - '1'
+        synonyms:
+          - rural_ind
+          - rural_status
+          - urban_rural_flag
+          - rural_urban_indicator
+          - non_urban_flag
+      - name: TOTAL_FARM_EXACT_ACRES
+        expr: TOTAL_FARM_EXACT_ACRES
+        data_type: VARCHAR(16777216)
+        description: Total exact acres of the farm for a specific farm location, identified by the farm name (e.g. Hadley).
+        sample_values:
+          - HADLEY
+          - '9'
+        synonyms:
+          - exact_farm_acres
+          - total_acres_farmed
+          - farm_size_acres
+          - acres_under_cultivation
+          - total_land_area_acres
+    primary_key:
+      columns: []
+

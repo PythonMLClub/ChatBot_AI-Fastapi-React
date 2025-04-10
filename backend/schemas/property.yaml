@@ -1,0 +1,226 @@
+name: cortex_agent
+description: 'Semantic model for property '
+tables:
+  - name: cortex_property_view
+    base_table:
+      database: landdetails
+      schema: oct2024
+      table: cortex_property_view
+    dimensions:
+      - name: PROPERTYTYPE
+        expr: PROPERTYTYPE
+        data_type: VARCHAR(16777216)
+        description: 'Type of property, categorized into three groups: 10.0 (residential), 50.0 (commercial), and 70.0 (industrial).'
+        sample_values:
+          - '10.0'
+          - '50.0'
+          - '70.0'
+        synonyms:
+          - property_category
+          - asset_type
+          - real_estate_type
+          - land_use_category
+          - property_classification
+      - name: STATE
+        expr: STATE
+        data_type: VARCHAR(16777216)
+        description: State in which the property is located.
+        sample_values:
+          - NY
+          - TN
+          - PA
+        synonyms:
+          - province
+          - region
+          - territory
+          - area
+          - location
+          - jurisdiction
+          - district
+          - county
+      - name: LANDUSECODE
+        expr: LANDUSECODE
+        data_type: VARCHAR(16777216)
+        description: Land use code categorizing the property into different land use types, such as residential, commercial, industrial, etc.
+        sample_values:
+          - '137.0'
+          - '100.0'
+          - '600.0'
+        synonyms:
+          - land_use_category
+          - land_use_type
+          - property_use_code
+          - zoning_code
+          - land_classification
+          - land_designation
+          - property_type_code
+      - name: PRIMARYADDRESS
+        expr: PRIMARYADDRESS
+        data_type: VARCHAR(16777216)
+        description: The primary address of a property, which may include a street address, route, or other location identifier.
+        sample_values:
+          - 1262 HARRIS HOLLOW RD
+          - ST RT 116
+          - 300 S WASHINGTON ST
+        synonyms:
+          - main_address
+          - primary_location
+          - home_address
+          - residential_address
+          - mailing_address
+          - street_address
+          - physical_address
+      - name: PRIMARYCITY
+        expr: PRIMARYCITY
+        data_type: VARCHAR(16777216)
+        description: 'The city where the property is primarily located, which can be one of the following: GERRY, HARRIMAN, or MUNCY.'
+        sample_values:
+          - GERRY
+          - HARRIMAN
+          - MUNCY
+        synonyms:
+          - main_city
+          - city_of_primary_address
+          - primary_location_city
+          - hometown
+          - city_of_record
+      - name: PRIMARYZIP
+        expr: PRIMARYZIP
+        data_type: VARCHAR(16777216)
+        description: The primary zip code associated with a property.
+        sample_values:
+          - '147409515'
+          - '37748'
+          - '177561504'
+        synonyms:
+          - postal_code
+          - zip_code
+          - main_zip
+          - primary_postal_code
+          - main_postal_code
+      - name: MAILINGADDRESS
+        expr: MAILINGADDRESS
+        data_type: VARCHAR(16777216)
+        description: The mailing address of a property, which can be a post office box or a physical street address.
+        sample_values:
+          - PO BOX 342
+          - 10517 PETROS HWY
+          - 46 KINSEY ST
+        synonyms:
+          - correspondence_address
+          - postal_address
+          - mail_address
+          - shipping_address
+          - delivery_address
+      - name: MAILINGCITY
+        expr: MAILINGCITY
+        data_type: VARCHAR(16777216)
+        description: The city where the property owner receives mail, typically the city associated with the property owner's mailing address.
+        sample_values:
+          - ELLINGTON
+          - OLIVER SPRINGS
+          - MONTGOMERY
+        synonyms:
+          - city_for_mailing
+          - mailing_town
+          - postal_city
+          - city_of_mailing_address
+          - mail_city
+      - name: MAILINGZIP
+        expr: MAILINGZIP
+        data_type: VARCHAR(16777216)
+        description: Mailing zip code of the property.
+        sample_values:
+          - '147320342'
+          - '378403918'
+          - '177521038'
+        synonyms:
+          - postal_code
+          - zip_code
+          - mailing_code
+          - zipPostal
+          - postal_address_code
+      - name: STATISTICALAREA
+        expr: STATISTICALAREA
+        data_type: VARCHAR(16777216)
+        description: Statistical area identifier, which represents a geographic region used for statistical analysis and reporting.
+        sample_values:
+          - '27460.0'
+          - '48700.0'
+        synonyms:
+          - census_area
+          - geographic_region
+          - statistical_district
+          - demographic_sector
+          - geographic_sector
+      - name: ACRESIZE
+        expr: ACRESIZE
+        data_type: VARCHAR(16777216)
+        description: Size of the property in acres.
+        sample_values:
+          - '1.0'
+          - '0.17'
+          - '0.3583'
+        synonyms:
+          - land_size
+          - lot_size
+          - property_size
+          - area_size
+          - square_footage
+          - land_area
+          - plot_size
+      - name: OWNERNAME
+        expr: OWNERNAME
+        data_type: VARCHAR(16777216)
+        description: The name of the property owner.
+        sample_values:
+          - DOUD GREGORY
+          - BUNCH LOGAN RAY
+          - MCRAE C ROGER
+        synonyms:
+          - proprietor
+          - landowner
+          - property_owner
+          - owner
+          - landlord
+          - titleholder
+      - name: ZONING
+        expr: ZONING
+        data_type: VARCHAR(16777216)
+        description: Zoning classification of the property, indicating the allowed land use and development density.
+        sample_values:
+          - '01'
+          - 4 RER
+        synonyms:
+          - land_use_code
+          - zoning_code
+          - zoning_designation
+          - zoning_classification
+          - land_use_zoning
+          - zoning_type
+          - zoning_category
+      - name: TAXAMOUNT
+        expr: TAXAMOUNT
+        data_type: VARCHAR(16777216)
+        description: The amount of taxes paid or owed on a property.
+        sample_values:
+          - '905.51'
+          - '68.0'
+          - '1448.54'
+        synonyms:
+          - tax
+          - property_tax
+          - tax_value
+          - tax_amount_due
+          - tax_assessed_value
+          - tax_liability
+          - tax_obligation
+          - tax_burden
+verified_queries:
+  - name: Unique Agricultural Land Records
+    question: Retrieves the count of unique agricultural land records
+    use_as_onboarding_question: true
+    sql: SELECT COUNT(DISTINCT PRIMARYADDRESS) AS unique_agricultural_land_records FROM PROPERTY_DATA_VIEW WHERE LANDUSECODE IN ('137.0', '200.0')
+    verified_by: cortex restapi
+    verified_at: 1741160944
+custom_instructions: If the user asks about agricultural land, use the LANDUSECODE column where values are '137.0' or '200.0'. To count unique records, use DISTINCT PRIMARYADDRESS

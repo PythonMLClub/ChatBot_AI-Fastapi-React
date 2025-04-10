@@ -1,0 +1,297 @@
+name: cortex_agent
+description: 'Semantic model for customers'
+tables:
+  - name: vw_customer_order_summary
+    base_table:
+      database: TDevDB
+      schema: dbo
+      table: vw_customer_order_summary
+    dimensions:
+      - name: CUSTOMER_ID
+        expr: CUSTOMER_ID
+        data_type: VARCHAR(255)
+        description: Unique identifier for a customer who has registered for a capstone project.
+        sample_values:
+          - '5095287'
+          - '5095338'
+          - '5095365'
+        synonyms:
+          - client_id
+          - customer_number
+          - account_id
+          - client_number
+          - user_id
+          - account_number
+          - customer_account
+          - client_account
+          - user_account
+      - name: CUSTOMER_NAME
+        expr: CUSTOMER_NAME
+        data_type: VARCHAR(255)
+        description: The name of the customer who registered for the capstone.
+        sample_values:
+          - BRIAN HORSLEY
+          - BRYAN LINK
+          - MATTHEW RAWE
+        synonyms:
+          - client_name
+          - customer_title
+          - account_holder
+          - account_name
+          - client_title
+          - customer_title_name
+          - account_owner
+          - client_full_name
+      - name: COMPANY
+        expr: COMPANY
+        data_type: VARCHAR(255)
+        description: The name of the company that the capstone registration is associated with.
+        sample_values:
+          - USA BENEFITS GROUP
+          - WESCO
+          - MEDUNA FAMILY FARMS
+        synonyms:
+          - organization
+          - firm
+          - business
+          - corporation
+          - enterprise
+          - entity
+          - institution
+      - name: STATE
+        expr: STATE
+        data_type: VARCHAR(255)
+        description: The two-letter abbreviation for the state in the United States where the capstone project was registered.
+        sample_values:
+          - MD
+          - MI
+          - NE
+        synonyms:
+          - province
+          - region
+          - territory
+          - county
+          - area
+          - location
+          - jurisdiction
+          - district
+          - governance_area
+      - name: ZIPCODE
+        expr: ZIPCODE
+        data_type: VARCHAR(255)
+        description: The five-digit code assigned to a geographic area by the United States Postal Service (USPS) to facilitate mail sorting and delivery, representing the location of a Capstone Registration.
+        sample_values:
+          - '20646'
+          - '49445'
+          - '68018'
+        synonyms:
+          - postal_code
+          - postcode
+          - zip
+          - zip_code
+          - postal
+          - post_code
+      - name: STATUS
+        expr: STATUS
+        data_type: VARCHAR(255)
+        description: The current status of the capstone registration, indicating whether the registration is from a customer.
+        sample_values:
+          - customer
+        synonyms:
+          - state
+          - condition
+          - situation
+          - position
+          - standing
+          - category
+          - classification
+          - designation
+      - name: SIGNUP_DATE
+        expr: SIGNUP_DATE
+        data_type: VARCHAR(255)
+        description: Date when the user signed up for the Capstone registration.
+        sample_values:
+          - '2001-01-05'
+          - '2001-08-29'
+          - '2011-02-09'
+        synonyms:
+          - registration_date
+          - join_date
+          - creation_date
+          - enrollment_date
+          - membership_date
+          - start_date
+      - name: REP_NAME
+        expr: REP_NAME
+        data_type: VARCHAR(255)
+        description: The name of the sales representative who registered the capstone project.
+        sample_values:
+          - Becky Samuelson
+          - Susan Walter
+          - Les Delmont
+        synonyms:
+          - sales_representative
+          - account_manager
+          - account_rep
+          - representative_name
+          - sales_agent
+          - account_executive
+          - sales_person
+          - representative
+          - account_handler
+          - Becky
+          - Becky S
+          - Samuelson
+      - name: LAST_PURCHASE_DATE
+        expr: LAST_PURCHASE_DATE
+        data_type: VARCHAR(255)
+        description: Date of the customer's most recent purchase.
+        sample_values:
+          - '2009-06-09'
+          - '2005-11-21'
+          - '2011-10-17'
+        synonyms:
+          - most_recent_purchase_date
+          - last_transaction_date
+          - recent_purchase_timestamp
+          - latest_buy_date
+          - final_purchase_date
+          - last_sale_date
+      - name: LAST_PURCHASE_REVENUE
+        expr: LAST_PURCHASE_REVENUE
+        data_type: VARCHAR(255)
+        description: The total revenue generated from a customer's most recent purchase.
+        sample_values:
+          - '29.99'
+          - '9.95'
+          - '186.60'
+        synonyms:
+          - last_sale_revenue
+          - last_transaction_value
+          - latest_purchase_amount
+          - recent_revenue
+          - last_order_value
+          - final_sale_amount
+      - name: TOTAL_REVENUE
+        expr: TOTAL_REVENUE
+        data_type: VARCHAR(255)
+        description: The total revenue generated by a capstone project or initiative, representing the overall financial return or income earned.
+        sample_values:
+          - '229.44'
+          - '129.94'
+          - '9671.40'
+        synonyms:
+          - total_sales
+          - overall_revenue
+          - total_earnings
+          - gross_revenue
+          - total_income
+          - total_turnover
+      - name: FIRST_PURCHASE_DATE
+        expr: FIRST_PURCHASE_DATE
+        data_type: VARCHAR(255)
+        description: Date of the customer's first purchase.
+        sample_values:
+          - '2005-01-17'
+          - '2005-11-20'
+          - '2005-01-18'
+        synonyms:
+          - initial_purchase_date
+          - first_buy_date
+          - initial_transaction_date
+          - first_sale_date
+          - first_order_date
+      - name: LAST_NOTES_DATE
+        expr: LAST_NOTES_DATE
+        data_type: VARCHAR(255)
+        description: Date when the last notes were added to the capstone registration.
+        sample_values:
+          - '2009-01-22'
+          - '2007-03-14'
+          - '2013-01-04'
+        synonyms:
+          - last_comment_date
+          - last_update_date
+          - most_recent_note_date
+          - latest_note_date
+          - last_interaction_date
+      - name: COUNT_ORDER
+        expr: COUNT_ORDER
+        data_type: VARCHAR(255)
+        description: The order in which the capstone was registered, with 0 indicating the first registration, 1 indicating the second registration, and 2 indicating the third registration.
+        sample_values:
+          - '1'
+          - '0'
+          - '2'
+        synonyms:
+          - order_count
+          - total_orders
+          - number_of_orders
+          - order_total
+          - order_quantity
+      - name: COUNT_ALL_ORDER
+        expr: COUNT_ALL_ORDER
+        data_type: VARCHAR(255)
+        description: Total number of orders placed by a customer.
+        sample_values:
+          - '0'
+        synonyms:
+          - total_orders
+          - all_orders_count
+          - overall_order_count
+          - grand_total_orders
+          - total_order_count
+      - name: DATA_ORDER
+        expr: DATA_ORDER
+        data_type: VARCHAR(255)
+        description: The order in which data was received or processed, with 0 indicating a default or unknown order, 1 indicating the first in a series, and 2 indicating the second in a series.
+        sample_values:
+          - '1'
+          - '0'
+          - '2'
+        synonyms:
+          - data_sequence
+          - data_sort_order
+          - data_arrangement
+          - data_ranking
+          - data_hierarchy
+          - data_organization
+      - name: DATA_ALL_ORDER
+        expr: DATA_ALL_ORDER
+        data_type: VARCHAR(255)
+        description: This column indicates the order in which data is to be processed or displayed, with 0 representing the default or primary order, and other values (11 and 3) representing alternative or secondary orders.
+        sample_values:
+          - '0'
+          - '11'
+          - '3'
+        synonyms:
+          - all_data_orders
+          - total_data_orders
+          - complete_data_orders
+          - full_data_orders
+          - entire_data_orders
+verified_queries:
+  - name: Monthly Customer Signups
+    question: '"How many customers signed up each month?"'
+    use_as_onboarding_question: false
+    sql: WITH parsed_dates AS (SELECT TO_TIMESTAMP(CASE WHEN signup_date IS NULL OR signup_date = '' OR signup_date = 'NULL' THEN NULL ELSE signup_date END, 'DD/mm/yyyy') AS signup_ts FROM capstoneregistration) SELECT DATE_TRUNC('MONTH', signup_ts) AS signup_month, COUNT(DISTINCT signup_ts) AS customer_count FROM parsed_dates GROUP BY DATE_TRUNC('MONTH', signup_ts) ORDER BY signup_month DESC NULLS LAST
+    verified_by: Snowflake Container
+    verified_at: 1742889306
+  - name: Total Revenue by Becky
+    question: '"What is the total revenue generated by Becky?"'
+    use_as_onboarding_question: false
+    sql: |
+      SELECT SUM(TOTAL_REVENUE) AS Total_Revenue_By_Becky
+      FROM TDevDB.dbo.vw_customer_order_summary
+      WHERE REP_NAME LIKE '%Becky%';
+    verified_by: Snowflake Container
+    verified_at: 1742889306
+  - name: Total Revenue by Susan
+    question: '"What is the total revenue generated by Susan?"'
+    use_as_onboarding_question: false
+    sql: |
+      SELECT SUM(TOTAL_REVENUE) AS Total_Revenue_By_Susan
+      FROM TDevDB.dbo.vw_customer_order_summary
+      WHERE REP_NAME LIKE '%Susan%';
+    verified_by: Snowflake Container
+    verified_at: 1742889306
