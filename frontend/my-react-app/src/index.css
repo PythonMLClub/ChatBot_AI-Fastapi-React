@@ -1,0 +1,9 @@
+@import "tailwindcss";
+body {
+    height: 100vh;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 400 16px "Open Sans", sans-serif;
+    background-image: url('https://www.usfarmdata.com/Images_New/body-tail.gif');
+    width: 70%;
+    margin:0 auto;
+}
