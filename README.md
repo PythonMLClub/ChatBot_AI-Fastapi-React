@@ -22,6 +22,6 @@ how many customers have notes last 30 days?
 
 ![image](https://github.com/user-attachments/assets/f2dd9431-8d6b-4eb0-94f5-30606f3462e0)
 
-## Buisness
+## BUSINESS
 
 ![image](https://github.com/user-attachments/assets/de458d19-74f5-44e9-afbb-df54b906027b)
