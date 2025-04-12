@@ -16,7 +16,7 @@ import {
 } from "recharts";
 
 
-const API_BASE_URL = "http://172.208.121.116:8001"; 
+const API_BASE_URL = "http://000.000.000.000:8001"; 
 
 function App() {
   const databases = ["Farm", "Business", "Property","Customers"];
