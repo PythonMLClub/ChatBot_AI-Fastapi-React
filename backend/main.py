@@ -15,13 +15,13 @@ import yaml
 
 app = FastAPI()
 
-allow_origins=["http://172.208.121.116:5173"]
+allow_origins=["http://000.000.000.000:5173"]
 
 
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-    "http://172.208.121.116:5173",  # ? Add this here
+    "http://000.000.000.000:5173",  # ? Add this here
 ]
 
 app.add_middleware(
